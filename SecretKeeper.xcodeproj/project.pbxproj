@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		500835BF7753647930CF79EB /* Pods_SecretKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604BE9862AC96164671F1EA0 /* Pods_SecretKeeper.framework */; };
+		693AB91F1D76E5CE00EEAC36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AB91E1D76E5CE00EEAC36 /* AppDelegate.swift */; };
+		693AB9241D76E5CE00EEAC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693AB9221D76E5CE00EEAC36 /* Main.storyboard */; };
+		693AB9261D76E5CE00EEAC36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693AB9251D76E5CE00EEAC36 /* Assets.xcassets */; };
+		693AB9291D76E5CE00EEAC36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693AB9271D76E5CE00EEAC36 /* LaunchScreen.storyboard */; };
+		693AB9341D76E5CE00EEAC36 /* SecretKeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AB9331D76E5CE00EEAC36 /* SecretKeeperTests.swift */; };
+		693AB93F1D76ED4B00EEAC36 /* SecretTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AB93E1D76ED4B00EEAC36 /* SecretTableViewCell.swift */; };
+		696B511A1D7851CD0075F643 /* SecretViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B51191D7851CD0075F643 /* SecretViewController.swift */; };
+		696B511C1D7852180075F643 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B511B1D7852180075F643 /* Secret.swift */; };
+		696B511E1D7852570075F643 /* SecretTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B511D1D7852570075F643 /* SecretTableViewController.swift */; };
+		696B51201D7865A10075F643 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B511F1D7865A10075F643 /* Helper.swift */; };
+		696B51221D79CA390075F643 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B51211D79CA390075F643 /* RealmManager.swift */; };
+		696B51261D7D637A0075F643 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B51251D7D637A0075F643 /* SplashViewController.swift */; };
+		69AF924B1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AF924A1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift */; };
+		CEF834FFED10FFF0D3EF6427 /* Pods_SecretKeeperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292B118A0081AD22916B8793 /* Pods_SecretKeeperTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		693AB9301D76E5CE00EEAC36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 693AB9131D76E5CE00EEAC36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 693AB91A1D76E5CE00EEAC36;
+			remoteInfo = SecretKeeper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AB8D7569E2209D4399B3C1E /* Pods-SecretKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretKeeper/Pods-SecretKeeper.release.xcconfig"; sourceTree = "<group>"; };
+		292B118A0081AD22916B8793 /* Pods_SecretKeeperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretKeeperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		604BE9862AC96164671F1EA0 /* Pods_SecretKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		645F6769A7EA2EA8362E8267 /* Pods-SecretKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretKeeper/Pods-SecretKeeper.debug.xcconfig"; sourceTree = "<group>"; };
+		693AB91B1D76E5CE00EEAC36 /* SecretKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		693AB91E1D76E5CE00EEAC36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		693AB9231D76E5CE00EEAC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		693AB9251D76E5CE00EEAC36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		693AB9281D76E5CE00EEAC36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		693AB92A1D76E5CE00EEAC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		693AB92F1D76E5CE00EEAC36 /* SecretKeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretKeeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		693AB9331D76E5CE00EEAC36 /* SecretKeeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeeperTests.swift; sourceTree = "<group>"; };
+		693AB9351D76E5CE00EEAC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		693AB93E1D76ED4B00EEAC36 /* SecretTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretTableViewCell.swift; sourceTree = "<group>"; };
+		696B51191D7851CD0075F643 /* SecretViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretViewController.swift; sourceTree = "<group>"; };
+		696B511B1D7852180075F643 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../Secret.swift; sourceTree = "<group>"; };
+		696B511D1D7852570075F643 /* SecretTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecretTableViewController.swift; path = ../SecretTableViewController.swift; sourceTree = "<group>"; };
+		696B511F1D7865A10075F643 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		696B51211D79CA390075F643 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		696B51251D7D637A0075F643 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ../SplashViewController.swift; sourceTree = "<group>"; };
+		69AF924A1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanaryTokenDeepLink.swift; sourceTree = "<group>"; };
+		9639C30BBB08454626309BCB /* Pods-SecretKeeperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretKeeperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretKeeperTests/Pods-SecretKeeperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7176223487233A6B81540CE /* Pods-SecretKeeperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretKeeperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretKeeperTests/Pods-SecretKeeperTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		693AB9181D76E5CE00EEAC36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				500835BF7753647930CF79EB /* Pods_SecretKeeper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		693AB92C1D76E5CE00EEAC36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF834FFED10FFF0D3EF6427 /* Pods_SecretKeeperTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		693AB9121D76E5CE00EEAC36 = {
+			isa = PBXGroup;
+			children = (
+				693AB91D1D76E5CE00EEAC36 /* SecretKeeper */,
+				693AB9321D76E5CE00EEAC36 /* SecretKeeperTests */,
+				693AB91C1D76E5CE00EEAC36 /* Products */,
+				6C0D9985C0D5CE4A80EA9D4B /* Pods */,
+				ECC390422D66659205BD94A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		693AB91C1D76E5CE00EEAC36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				693AB91B1D76E5CE00EEAC36 /* SecretKeeper.app */,
+				693AB92F1D76E5CE00EEAC36 /* SecretKeeperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		693AB91D1D76E5CE00EEAC36 /* SecretKeeper */ = {
+			isa = PBXGroup;
+			children = (
+				696B51251D7D637A0075F643 /* SplashViewController.swift */,
+				696B511D1D7852570075F643 /* SecretTableViewController.swift */,
+				696B511F1D7865A10075F643 /* Helper.swift */,
+				696B511B1D7852180075F643 /* Secret.swift */,
+				693AB91E1D76E5CE00EEAC36 /* AppDelegate.swift */,
+				693AB9221D76E5CE00EEAC36 /* Main.storyboard */,
+				696B51191D7851CD0075F643 /* SecretViewController.swift */,
+				693AB9251D76E5CE00EEAC36 /* Assets.xcassets */,
+				693AB9271D76E5CE00EEAC36 /* LaunchScreen.storyboard */,
+				693AB92A1D76E5CE00EEAC36 /* Info.plist */,
+				693AB93E1D76ED4B00EEAC36 /* SecretTableViewCell.swift */,
+				696B51211D79CA390075F643 /* RealmManager.swift */,
+				69AF924A1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift */,
+			);
+			path = SecretKeeper;
+			sourceTree = "<group>";
+		};
+		693AB9321D76E5CE00EEAC36 /* SecretKeeperTests */ = {
+			isa = PBXGroup;
+			children = (
+				693AB9331D76E5CE00EEAC36 /* SecretKeeperTests.swift */,
+				693AB9351D76E5CE00EEAC36 /* Info.plist */,
+			);
+			path = SecretKeeperTests;
+			sourceTree = "<group>";
+		};
+		6C0D9985C0D5CE4A80EA9D4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				645F6769A7EA2EA8362E8267 /* Pods-SecretKeeper.debug.xcconfig */,
+				0AB8D7569E2209D4399B3C1E /* Pods-SecretKeeper.release.xcconfig */,
+				9639C30BBB08454626309BCB /* Pods-SecretKeeperTests.debug.xcconfig */,
+				F7176223487233A6B81540CE /* Pods-SecretKeeperTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ECC390422D66659205BD94A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				604BE9862AC96164671F1EA0 /* Pods_SecretKeeper.framework */,
+				292B118A0081AD22916B8793 /* Pods_SecretKeeperTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		693AB91A1D76E5CE00EEAC36 /* SecretKeeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 693AB9381D76E5CE00EEAC36 /* Build configuration list for PBXNativeTarget "SecretKeeper" */;
+			buildPhases = (
+				3C47C829FCFAF3872AB0AD85 /* [CP] Check Pods Manifest.lock */,
+				693AB9171D76E5CE00EEAC36 /* Sources */,
+				693AB9181D76E5CE00EEAC36 /* Frameworks */,
+				693AB9191D76E5CE00EEAC36 /* Resources */,
+				6FFEA53F27FE7C4F7CABD12C /* [CP] Embed Pods Frameworks */,
+				7761D2038B7F629ADFA2DFC3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecretKeeper;
+			productName = SecretKeeper;
+			productReference = 693AB91B1D76E5CE00EEAC36 /* SecretKeeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		693AB92E1D76E5CE00EEAC36 /* SecretKeeperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 693AB93B1D76E5CE00EEAC36 /* Build configuration list for PBXNativeTarget "SecretKeeperTests" */;
+			buildPhases = (
+				3F8D2323BA6AF9C321C3A82F /* [CP] Check Pods Manifest.lock */,
+				693AB92B1D76E5CE00EEAC36 /* Sources */,
+				693AB92C1D76E5CE00EEAC36 /* Frameworks */,
+				693AB92D1D76E5CE00EEAC36 /* Resources */,
+				3E96BBDF9DD586C867B0DA1D /* [CP] Embed Pods Frameworks */,
+				E7EB8F653741ABA2B683DD16 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				693AB9311D76E5CE00EEAC36 /* PBXTargetDependency */,
+			);
+			name = SecretKeeperTests;
+			productName = SecretKeeperTests;
+			productReference = 693AB92F1D76E5CE00EEAC36 /* SecretKeeperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		693AB9131D76E5CE00EEAC36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Jay;
+				TargetAttributes = {
+					693AB91A1D76E5CE00EEAC36 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					693AB92E1D76E5CE00EEAC36 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 693AB91A1D76E5CE00EEAC36;
+					};
+				};
+			};
+			buildConfigurationList = 693AB9161D76E5CE00EEAC36 /* Build configuration list for PBXProject "SecretKeeper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 693AB9121D76E5CE00EEAC36;
+			productRefGroup = 693AB91C1D76E5CE00EEAC36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				693AB91A1D76E5CE00EEAC36 /* SecretKeeper */,
+				693AB92E1D76E5CE00EEAC36 /* SecretKeeperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		693AB9191D76E5CE00EEAC36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				693AB9291D76E5CE00EEAC36 /* LaunchScreen.storyboard in Resources */,
+				693AB9261D76E5CE00EEAC36 /* Assets.xcassets in Resources */,
+				693AB9241D76E5CE00EEAC36 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		693AB92D1D76E5CE00EEAC36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C47C829FCFAF3872AB0AD85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3E96BBDF9DD586C867B0DA1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretKeeperTests/Pods-SecretKeeperTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F8D2323BA6AF9C321C3A82F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6FFEA53F27FE7C4F7CABD12C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretKeeper/Pods-SecretKeeper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7761D2038B7F629ADFA2DFC3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretKeeper/Pods-SecretKeeper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7EB8F653741ABA2B683DD16 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretKeeperTests/Pods-SecretKeeperTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		693AB9171D76E5CE00EEAC36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				696B511A1D7851CD0075F643 /* SecretViewController.swift in Sources */,
+				696B51221D79CA390075F643 /* RealmManager.swift in Sources */,
+				696B51201D7865A10075F643 /* Helper.swift in Sources */,
+				696B511C1D7852180075F643 /* Secret.swift in Sources */,
+				696B511E1D7852570075F643 /* SecretTableViewController.swift in Sources */,
+				693AB93F1D76ED4B00EEAC36 /* SecretTableViewCell.swift in Sources */,
+				69AF924B1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift in Sources */,
+				693AB91F1D76E5CE00EEAC36 /* AppDelegate.swift in Sources */,
+				696B51261D7D637A0075F643 /* SplashViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		693AB92B1D76E5CE00EEAC36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				693AB9341D76E5CE00EEAC36 /* SecretKeeperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		693AB9311D76E5CE00EEAC36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 693AB91A1D76E5CE00EEAC36 /* SecretKeeper */;
+			targetProxy = 693AB9301D76E5CE00EEAC36 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		693AB9221D76E5CE00EEAC36 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				693AB9231D76E5CE00EEAC36 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		693AB9271D76E5CE00EEAC36 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				693AB9281D76E5CE00EEAC36 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		693AB9361D76E5CE00EEAC36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		693AB9371D76E5CE00EEAC36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		693AB9391D76E5CE00EEAC36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 645F6769A7EA2EA8362E8267 /* Pods-SecretKeeper.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SecretKeeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		693AB93A1D76E5CE00EEAC36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AB8D7569E2209D4399B3C1E /* Pods-SecretKeeper.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SecretKeeper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		693AB93C1D76E5CE00EEAC36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9639C30BBB08454626309BCB /* Pods-SecretKeeperTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SecretKeeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecretKeeper.app/SecretKeeper";
+			};
+			name = Debug;
+		};
+		693AB93D1D76E5CE00EEAC36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7176223487233A6B81540CE /* Pods-SecretKeeperTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SecretKeeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecretKeeper.app/SecretKeeper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		693AB9161D76E5CE00EEAC36 /* Build configuration list for PBXProject "SecretKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				693AB9361D76E5CE00EEAC36 /* Debug */,
+				693AB9371D76E5CE00EEAC36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		693AB9381D76E5CE00EEAC36 /* Build configuration list for PBXNativeTarget "SecretKeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				693AB9391D76E5CE00EEAC36 /* Debug */,
+				693AB93A1D76E5CE00EEAC36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		693AB93B1D76E5CE00EEAC36 /* Build configuration list for PBXNativeTarget "SecretKeeperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				693AB93C1D76E5CE00EEAC36 /* Debug */,
+				693AB93D1D76E5CE00EEAC36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 693AB9131D76E5CE00EEAC36 /* Project object */;
+}
