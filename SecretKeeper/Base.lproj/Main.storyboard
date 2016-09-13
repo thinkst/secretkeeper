@@ -63,6 +63,7 @@
                     </view>
                     <connections>
                         <outlet property="enterButton" destination="cv1-nh-ITc" id="JYq-e0-xkG"/>
+                        <outlet property="iamgeView" destination="Sz7-Xt-hJI" id="ae6-M3-Z9b"/>
                         <outlet property="passcodeTextField" destination="zpn-1f-WFn" id="0vb-mG-oMI"/>
                         <outlet property="splashTextField" destination="X33-sV-oRO" id="0lq-wR-VYT"/>
                     </connections>

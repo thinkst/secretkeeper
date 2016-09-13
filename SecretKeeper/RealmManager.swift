@@ -82,27 +82,5 @@ class RealmManager {
         }
         
     }
-    
-    func saveCanaryToken(token:CanaryToken){
-        deleteExistingCanaryTokens()
-        try! realm?.write{
-            realm?.add(token)
-        }
-    }
-    
-    func deleteExistingCanaryTokens(){
-        if let results = realm?.objects(CanaryToken.self){
-            realm?.delete(results)
-            print("Cleared Realm database of exisiting tokens. Database clean to add new Canary Token")
-        }
-    }
-    
-    func downloadCanaryToken() -> CanaryToken?{
-        if let result = realm?.objects(CanaryToken.self).sorted("date", ascending: false){
-            return result.first
-        }
-        print("Realm database has no CanaryToken")
-        return nil
-    }
 }
 
