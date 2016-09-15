@@ -12,33 +12,33 @@ class CanaryTokensDeepLink: NSObject{
     var token : String = ""
     
     
-    class func create(tokeninfo : [NSObject : AnyObject]) -> CanaryTokensDeepLink?{
+    class func create(_ tokeninfo : [AnyHashable: Any]) -> CanaryTokensDeepLink?{
         let info = tokeninfo as NSDictionary
         
-        let token = info.objectForKey(CanaryTokenWebDebugKey) as! String
+        let token = info.object(forKey: CanaryTokenWebDebugKey) as! String
         
         return CanaryTokensDeepLink(tokenStr: token)
         
     }
     
-    private override init()
+    fileprivate override init()
     {
         self.token = ""
         super.init()
     }
     
-    private init (tokenStr: String){
+    fileprivate init (tokenStr: String){
         self.token = tokenStr
         super.init()
     }
     
     final func trigger(){
-        dispatch_async(dispatch_get_main_queue()){
+        DispatchQueue.main.async{
             self.triggerToken()
         }
     }
     
-    private func triggerToken(){
+    fileprivate func triggerToken(){
 //        var vc = SplashViewController()
         
         

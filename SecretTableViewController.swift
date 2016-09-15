@@ -16,7 +16,7 @@ class SecretTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.leftBarButtonItem = editButtonItem
         
         if let savedSecrets = loadSecrets(){
             secrets += savedSecrets
@@ -33,11 +33,11 @@ class SecretTableViewController: UITableViewController {
     func loadSampleSecrets(){
         let secret1 = Secret()
         secret1.title = "Big Secret"
-        secret1.date = NSDate()
+        secret1.date = Date()
         secret1.content = "This is a big sample secret shhhhhh"
         let secret2 = Secret()
         secret2.title = "Top Clearance"
-        secret2.date = NSDate()
+        secret2.date = Date()
         secret2.content = "Ha, you were tricked. Silly William"
         secrets += [secret1, secret2]
     }
@@ -53,20 +53,20 @@ class SecretTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return secrets.count
     }
     
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "SecretTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SecretTableViewCell
-        let secret = secrets[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SecretTableViewCell
+        let secret = secrets[(indexPath as NSIndexPath).row]
         
         cell.titleLabel.text = secret.title
         cell.dateLabel.text  = Helper.DateAsString(secret.date!)
@@ -75,20 +75,20 @@ class SecretTableViewController: UITableViewController {
  
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
  
 
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            secrets.removeAtIndex(indexPath.row)
-            RealmManager._instance.deleteSecret(secrets[indexPath.row])
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            secrets.remove(at: (indexPath as NSIndexPath).row)
+            RealmManager._instance.deleteSecret(secrets[(indexPath as NSIndexPath).row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -113,12 +113,12 @@ class SecretTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowSecret"{
-            let secretViewController = segue.destinationViewController as! SecretViewController
+            let secretViewController = segue.destination as! SecretViewController
             if let selectedSecretCell = sender as? SecretTableViewCell {
-                let indexPath = tableView.indexPathForCell(selectedSecretCell)!
-                let selectedSecret = secrets[indexPath.row]
+                let indexPath = tableView.indexPath(for: selectedSecretCell)!
+                let selectedSecret = secrets[(indexPath as NSIndexPath).row]
                 secretViewController.secret = selectedSecret
              }
         }else if segue.identifier == "AddItem"{
@@ -126,15 +126,15 @@ class SecretTableViewController: UITableViewController {
     }
     
     
-    @IBAction func unwindToSecretList(sender: UIStoryboardSegue){
-        if let sourceViewController = sender.sourceViewController as? SecretViewController, secret = sourceViewController.secret{
+    @IBAction func unwindToSecretList(_ sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? SecretViewController, let secret = sourceViewController.secret{
             if let selectedIndexPath = tableView.indexPathForSelectedRow{
-                secrets[selectedIndexPath.row] = secret
-                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                secrets[(selectedIndexPath as NSIndexPath).row] = secret
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }else{
-                let newIndexPath = NSIndexPath(forRow: secrets.count, inSection: 0)
+                let newIndexPath = IndexPath(row: secrets.count, section: 0)
                 secrets.append(secret)
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+                tableView.insertRows(at: [newIndexPath], with: .bottom)
             }
         }
     }

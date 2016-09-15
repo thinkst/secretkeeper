@@ -24,9 +24,10 @@ class RealmManager {
         print("Initialised Realm Manager")
     }
     
-    private func connectToRealm(key:NSData) -> Bool{
+    fileprivate func connectToRealm(_ key:Data) -> Bool{
         do{
-            let config = Realm.Configuration(encryptionKey: key, fileURL: NSURL(fileURLWithPath: "/Users/jay/Work/iOS/SecretKeeper/database.realm"))
+            //, fileURL: NSURL(fileURLWithPath: "/Users/jay/Work/iOS/SecretKeeper/database.realm")
+            let config = Realm.Configuration(encryptionKey: key)
             realm = try Realm(configuration: config)
             print("Connection to Encrypted Realm Database Successful")
             signedIn = true
@@ -38,24 +39,24 @@ class RealmManager {
         return false
     }
     
-    private func deriveKeyFromPassword(password:String) -> NSData{
+    fileprivate func deriveKeyFromPassword(_ password:String) -> Data{
         let passArr = password.utf8.map {$0}
         let salt  = "nacl".utf8.map {$0}
         let value = try! PKCS5.PBKDF2(password: passArr, salt: salt, iterations: 4096 ,variant: .sha512).calculate()
         //let paddedData = PKCS7().add(value, blockSize: 64)
-        let data = NSData(bytes: value)
+        let data = Data(bytes: value)
         print ("64 byte encryption key: \(data)")
         return data
     }
     
-    func activate(key: String) -> Bool {
+    func activate(_ key: String) -> Bool {
         let check = connectToRealm(deriveKeyFromPassword(key))
         return check
     }
     
     func downloadRealm() -> [Secret]?{
         var resultArr:[Secret] = []
-            if let results = realm?.objects(Secret.self).sorted("date"){
+            if let results = realm?.allObjects(ofType: Secret.self).sorted(onProperty: "date"){
                 for item in results{
                     let secret = Secret()
                     secret.title = item.title
@@ -70,13 +71,13 @@ class RealmManager {
         return nil
     }
     
-    func deleteSecret(secret:Secret){
+    func deleteSecret(_ secret:Secret){
         try! realm?.write{
             realm?.delete(secret)
         }
     }
     
-    func saveSecret(secret:Secret){
+    func saveSecret(_ secret:Secret){
         try! realm?.write{
             realm?.add(secret, update: true)
         }

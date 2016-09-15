@@ -28,24 +28,24 @@ class SecretViewController: UIViewController, UITextViewDelegate, UITextFieldDel
             contentTextView.text = secret.content
         }
         
-        saveButton.enabled = Helper.CheckValidSecretName(titleTextField)
+        saveButton.isEnabled = Helper.CheckValidSecretName(titleTextField)
     }
     
     //MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Hide the keyboard
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        saveButton.enabled = Helper.CheckValidSecretName(textField)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        saveButton.isEnabled = Helper.CheckValidSecretName(textField)
         navigationItem.title = textField.text
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         //Disable the Save button while editing
-        saveButton.enabled = false
+        saveButton.isEnabled = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,12 +55,12 @@ class SecretViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     
 
     // MARK: - Navigation
-    @IBAction func cancel(sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         let isPresentingAddSecretMode = presentingViewController is UINavigationController
         if isPresentingAddSecretMode{
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }else{
-            navigationController!.popViewControllerAnimated(true)
+            navigationController!.popViewController(animated: true)
         }
     }
     
@@ -75,14 +75,14 @@ class SecretViewController: UIViewController, UITextViewDelegate, UITextFieldDel
     //MARK: Navigation
     
     //This method lets you configure a view ocntroller before it's presented
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if saveButton === sender as? UIButton{
             let title = titleTextField.text ?? ""
             let content = contentTextView.text ?? ""
             
             secret = Secret()
             secret?.content = content
-            secret?.date = NSDate()
+            secret?.date = Date()
             secret?.title = title
             
             RealmManager._instance.saveSecret(secret!)

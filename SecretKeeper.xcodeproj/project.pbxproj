@@ -14,6 +14,7 @@
 		693AB9291D76E5CE00EEAC36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693AB9271D76E5CE00EEAC36 /* LaunchScreen.storyboard */; };
 		693AB9341D76E5CE00EEAC36 /* SecretKeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AB9331D76E5CE00EEAC36 /* SecretKeeperTests.swift */; };
 		693AB93F1D76ED4B00EEAC36 /* SecretTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AB93E1D76ED4B00EEAC36 /* SecretTableViewCell.swift */; };
+		69621EC91D87FFCE00736185 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69621EC81D87FFCE00736185 /* CameraController.swift */; };
 		696B511A1D7851CD0075F643 /* SecretViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B51191D7851CD0075F643 /* SecretViewController.swift */; };
 		696B511C1D7852180075F643 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B511B1D7852180075F643 /* Secret.swift */; };
 		696B511E1D7852570075F643 /* SecretTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696B511D1D7852570075F643 /* SecretTableViewController.swift */; };
@@ -50,6 +51,7 @@
 		693AB9331D76E5CE00EEAC36 /* SecretKeeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeeperTests.swift; sourceTree = "<group>"; };
 		693AB9351D76E5CE00EEAC36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		693AB93E1D76ED4B00EEAC36 /* SecretTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretTableViewCell.swift; sourceTree = "<group>"; };
+		69621EC81D87FFCE00736185 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		696B51191D7851CD0075F643 /* SecretViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretViewController.swift; sourceTree = "<group>"; };
 		696B511B1D7852180075F643 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../Secret.swift; sourceTree = "<group>"; };
 		696B511D1D7852570075F643 /* SecretTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecretTableViewController.swift; path = ../SecretTableViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				696B51251D7D637A0075F643 /* SplashViewController.swift */,
+				69621EC81D87FFCE00736185 /* CameraController.swift */,
 				696B511D1D7852570075F643 /* SecretTableViewController.swift */,
 				696B511F1D7865A10075F643 /* Helper.swift */,
 				696B511B1D7852180075F643 /* Secret.swift */,
@@ -113,10 +116,10 @@
 				693AB91E1D76E5CE00EEAC36 /* AppDelegate.swift */,
 				693AB9221D76E5CE00EEAC36 /* Main.storyboard */,
 				696B51191D7851CD0075F643 /* SecretViewController.swift */,
-				693AB9251D76E5CE00EEAC36 /* Assets.xcassets */,
 				693AB9271D76E5CE00EEAC36 /* LaunchScreen.storyboard */,
 				693AB92A1D76E5CE00EEAC36 /* Info.plist */,
 				693AB93E1D76ED4B00EEAC36 /* SecretTableViewCell.swift */,
+				693AB9251D76E5CE00EEAC36 /* Assets.xcassets */,
 				696B51211D79CA390075F643 /* RealmManager.swift */,
 				69AF924A1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift */,
 			);
@@ -203,15 +206,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Jay;
 				TargetAttributes = {
 					693AB91A1D76E5CE00EEAC36 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = KE8M5H4MU7;
+						LastSwiftMigration = 0800;
 					};
 					693AB92E1D76E5CE00EEAC36 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 693AB91A1D76E5CE00EEAC36;
 					};
 				};
@@ -268,7 +273,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3E96BBDF9DD586C867B0DA1D /* [CP] Embed Pods Frameworks */ = {
@@ -298,7 +303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6FFEA53F27FE7C4F7CABD12C /* [CP] Embed Pods Frameworks */ = {
@@ -359,6 +364,7 @@
 				6987E2731D7FF35100E52B20 /* CanaryToken.swift in Sources */,
 				696B511C1D7852180075F643 /* Secret.swift in Sources */,
 				696B511E1D7852570075F643 /* SecretTableViewController.swift in Sources */,
+				69621EC91D87FFCE00736185 /* CameraController.swift in Sources */,
 				693AB93F1D76ED4B00EEAC36 /* SecretTableViewCell.swift in Sources */,
 				69AF924B1D7EF7CD0081F570 /* CanaryTokenDeepLink.swift in Sources */,
 				693AB91F1D76E5CE00EEAC36 /* AppDelegate.swift in Sources */,
@@ -418,8 +424,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -446,6 +454,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -464,8 +473,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -484,6 +495,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -493,12 +506,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 645F6769A7EA2EA8362E8267 /* Pods-SecretKeeper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SecretKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -506,12 +521,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0AB8D7569E2209D4399B3C1E /* Pods-SecretKeeper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SecretKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -524,6 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecretKeeper.app/SecretKeeper";
 			};
 			name = Debug;
@@ -537,6 +555,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thinkst.SecretKeeperTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SecretKeeper.app/SecretKeeper";
 			};
 			name = Release;

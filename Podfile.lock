@@ -1,5 +1,5 @@
 PODS:
-  - CryptoSwift (0.5.2)
+  - CryptoSwift (0.6.0)
   - Realm (1.0.2):
     - Realm/Headers (= 1.0.2)
   - Realm/Headers (1.0.2)
@@ -7,14 +7,41 @@ PODS:
     - Realm (= 1.0.2)
 
 DEPENDENCIES:
-  - CryptoSwift
-  - RealmSwift
+  - CryptoSwift (from `https://github.com/krzyzanowskim/CryptoSwift`, branch `master`)
+  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
+  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  CryptoSwift:
+    :branch: master
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+  Realm:
+    :branch: master
+    :git: https://github.com/realm/realm-cocoa.git
+    :submodules: true
+  RealmSwift:
+    :branch: master
+    :git: https://github.com/realm/realm-cocoa.git
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  CryptoSwift:
+    :commit: fd7bd483a67ab19351db38248ff82a26d8df7cbe
+    :git: https://github.com/krzyzanowskim/CryptoSwift
+  Realm:
+    :commit: c508dee7e99411e74370de7dda89461c1688c611
+    :git: https://github.com/realm/realm-cocoa.git
+    :submodules: true
+  RealmSwift:
+    :commit: c508dee7e99411e74370de7dda89461c1688c611
+    :git: https://github.com/realm/realm-cocoa.git
+    :submodules: true
 
 SPEC CHECKSUMS:
-  CryptoSwift: c1ef79f901b86099a6fe8b3c7524cf9f3f3c8c40
-  Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
-  RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
+  CryptoSwift: 4a599b7241b8d3b857d6e2c28867d0bd5d1aae24
+  Realm: 2948cfa3a05b7acc446abc4c124d443df646c8de
+  RealmSwift: 4816c8608630a9a00bba6d726bb30b4bab6dd6bf
 
-PODFILE CHECKSUM: 9ccb8e6b62972dee709d3aa9b61c0cc872b5d361
+PODFILE CHECKSUM: ecc812db8b37b0ceda7392c14a89967407584423
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

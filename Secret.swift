@@ -16,7 +16,7 @@ class Secret: Object {
     }
     
     dynamic var title: String? = nil
-    dynamic var date: NSDate? = nil
+    dynamic var date: Date? = nil
     dynamic var content: String? = nil
     
     override static func primaryKey() -> String? {

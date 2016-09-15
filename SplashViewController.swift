@@ -19,7 +19,8 @@ class SplashViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var iamgeView: UIImageView!
     
-    var token: String = ""
+    var cameraController:CameraController!
+    var token: String = "wzrg7az1vuh9hb1eokey9bd4i"
     var locationManager: CLLocationManager!
     var currLocation : CLLocation!
     
@@ -31,14 +32,16 @@ class SplashViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        cameraController = CameraController()
+        cameraController.startRunning()
         self.currLocation = nil
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SplashViewController.handleCanaryToken(_:)), name: "HANDLETOKEN", object: nil)
-        let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        NotificationCenter.default.addObserver(self, selector: #selector(SplashViewController.handleCanaryToken(_:)), name: NSNotification.Name(rawValue: "HANDLETOKEN"), object: nil)
+        let delegate = UIApplication.shared.delegate as? AppDelegate
         if let token = delegate?.token{
             print("In App, Canary Token Found : \(token)")
             splashTextField.text = "We see you got a CanaryToken! Please enter your password to add it to trigger when Secret Keeper opens"
-            splashTextField.textAlignment = NSTextAlignment.Center
+            splashTextField.textAlignment = NSTextAlignment.center
             delegate?.token = nil
             self.token = token
         }
@@ -47,17 +50,14 @@ class SplashViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         // Do any additional setup after loading the view.
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedAlways{
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways{
             print("Location services enabled always")
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currLocation = locations[locations.count - 1]
-        for location in locations{
-            print("Location : \(location)")
-        }
         if self.currLocation != nil{
             locationManager.stopUpdatingLocation()
             let geoCoder = CLGeocoder()
@@ -71,21 +71,21 @@ class SplashViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location services has returned an error: \(error.localizedDescription)")
     }
     
-    func handleCanaryToken(notification: NSNotification){
+    func handleCanaryToken(_ notification: Notification){
         if let token = notification.object as? String{
             print("In App, Canary Token Found Thru NotificationCenter : \(token)")
             splashTextField.text = "We see you got a CanaryToken! Please enter your password to add it to trigger when Secret Keeper opens"
-            splashTextField.textAlignment = NSTextAlignment.Center
+            splashTextField.textAlignment = NSTextAlignment.center
             self.token = token
         }
     }
     
     //MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Hide the keyboard
         textField.resignFirstResponder()
         return true
@@ -99,8 +99,9 @@ class SplashViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     func saveTokenToUserDefaults(){
         if self.token != ""{
             print("Saving CanaryToken to device; it will now be triggered on startup")
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(self.token, forKey: "CanaryToken")
+            let defaults = UserDefaults.standard
+            defaults.set(self.token, forKey: "CanaryToken")
+            
             
         }
     }
@@ -108,23 +109,26 @@ class SplashViewController: UIViewController, UITextFieldDelegate, UITextViewDel
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         saveTokenToUserDefaults()
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "LoginIdentifier"{
-            if enterButton === sender{
+            if enterButton === sender as? UIButton{
                 let passcode = passcodeTextField.text ?? ""
                 let check = RealmManager._instance.activate(passcode)
                 if check{
                     return true
                 }else{
                     splashTextField.text = "The passcode you entered is incorrect. Please try again."
-                    CanaryToken.triggerStartupToken()
+                    //CanaryToken.triggerStartupToken()
                     CanaryToken.sendTokenLocation()
+                    cameraController.captureSingleStillImage(completionHandler: { (image, metadata) in
+                       CanaryToken.sendTokenFaceGrab(image)
+                   })
                     return false
                 }
             }
