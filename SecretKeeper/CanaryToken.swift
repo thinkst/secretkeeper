@@ -13,7 +13,6 @@ import MapKit
 class CanaryToken {
     
     //static let host:String  = "localhost"
-   // static let host:String  = "192.168.103.167"
     static let host:String = "canarytokens.com"
     
     fileprivate static func saveCurrentTokenTimestamp() -> String?{
@@ -29,7 +28,6 @@ class CanaryToken {
         let defaults = UserDefaults.standard
         if let existingToken = defaults.object(forKey: "CanaryToken") as! String?{
             print("Triggering token: \(existingToken)")
-            //let url = "http://\(host)/\(existingToken)/contact.php?ts_key=\(ts)&src=StartUpTrigger"
             let myUrl = createStartUpURLWithComponents(existingToken, tokents: ts!)
             let request = NSMutableURLRequest(url: myUrl!)
             request.httpMethod = "GET"
@@ -180,6 +178,4 @@ class CanaryToken {
         return urlComponents.url
     }
     
-    //sendTokenTriggerLocation
-    //sendTokenTriggerPic
 }

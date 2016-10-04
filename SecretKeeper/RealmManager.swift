@@ -17,16 +17,12 @@ class RealmManager {
     var realm:Realm?
     var signedIn:Bool = false
     
-    //Password : Hello
-    //64 byte key : ad133ca3c1806d86a80ec0772b2458642b0707ba3bd605f528bf013517eee253fc3041049b79ea3744bd7c8c2d9290d91671967de2a50af82a2e93ab47b85235
-    
     init(){
         print("Initialised Realm Manager")
     }
     
     fileprivate func connectToRealm(_ key:Data) -> Bool{
         do{
-            //, fileURL: NSURL(fileURLWithPath: "/Users/jay/Work/iOS/SecretKeeper/database.realm")
             let config = Realm.Configuration(encryptionKey: key)
             realm = try Realm(configuration: config)
             print("Connection to Encrypted Realm Database Successful")
